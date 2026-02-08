@@ -1,0 +1,23 @@
+export const toolRegistry = [
+  "./plugins/password-generator/manifest.json",
+  "./plugins/password-strength-checker/manifest.json",
+  "./plugins/uuid-generator/manifest.json",
+  "./plugins/api-key-generator/manifest.json",
+  "./plugins/hash-generator/manifest.json",
+  "./plugins/hash-compare/manifest.json",
+  "./plugins/jwt-decoder/manifest.json",
+  "./plugins/json-formatter/manifest.json",
+  "./plugins/json-diff/manifest.json",
+  "./plugins/json-yaml-converter/manifest.json",
+  "./plugins/csv-json-converter/manifest.json",
+  "./plugins/url-encode-decode/manifest.json",
+  "./plugins/timestamp-converter/manifest.json",
+  "./plugins/case-converter/manifest.json",
+  "./plugins/lorem-ipsum/manifest.json",
+  "./plugins/text-diff/manifest.json",
+  "./plugins/line-sorter/manifest.json",
+  "./plugins/whitespace-cleaner/manifest.json",
+  "./plugins/color-converter/manifest.json",
+  "./plugins/css-gradient-generator/manifest.json",
+  "./plugins/meta-tag-generator/manifest.json"
+];

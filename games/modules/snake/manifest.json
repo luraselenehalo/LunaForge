@@ -1,0 +1,11 @@
+{
+  "id": "snake-game",
+  "name": "Snake Game",
+  "version": "1.0.0",
+  "type": "game",
+  "description": "Guide the snake and collect orbs.",
+  "entry": "./modules/snake/snake.js",
+  "author": "LunaForge Core",
+  "permissions": [],
+  "category": "Arcade"
+}

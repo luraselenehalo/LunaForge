@@ -1,0 +1,11 @@
+{
+  "id": "password-strength-checker",
+  "name": "Password Strength Checker",
+  "version": "1.0.0",
+  "type": "tool",
+  "description": "Evaluate password strength with scoring and recommendations.",
+  "entry": "./plugins/password-strength-checker/password-strength-checker.js",
+  "author": "LunaForge Core",
+  "permissions": [],
+  "category": "Security / Dev"
+}

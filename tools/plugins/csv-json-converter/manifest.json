@@ -1,0 +1,11 @@
+{
+  "id": "csv-json-converter",
+  "name": "CSV \u2194 JSON Converter",
+  "version": "1.0.0",
+  "type": "tool",
+  "description": "Convert CSV rows to JSON and back.",
+  "entry": "./plugins/csv-json-converter/csv-json-converter.js",
+  "author": "LunaForge Core",
+  "permissions": [],
+  "category": "Data / Backend"
+}

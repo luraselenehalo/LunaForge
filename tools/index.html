@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LunaForge Tools</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main" style="position:absolute; left:-999px;">Skip to content</a>
+    <header>
+      <nav class="navbar" aria-label="Primary">
+        <div class="brand">
+          <span class="logo" aria-hidden="true"></span>
+          <span>LunaForge</span>
+        </div>
+        <div class="nav-links">
+          <a href="/index.html">Home</a>
+          <a href="/tools/index.html">Tools</a>
+          <a href="/games/index.html">Mini Games</a>
+          <a href="/about.html">About</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <h1 class="section-title">Developer Tools</h1>
+      <p class="helper-text">All tools are plugins validated before loading. New tools appear automatically.</p>
+      <div id="tool-container" class="panel"></div>
+
+      <dialog id="tool-modal" aria-labelledby="tool-modal-title">
+        <div class="panel">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h2 id="tool-modal-title"></h2>
+            <button class="button secondary" id="tool-modal-close">Close</button>
+          </div>
+          <div id="tool-modal-content"></div>
+        </div>
+      </dialog>
+    </main>
+
+    <footer class="footer">
+      <p>Offline-first tools loaded via plugin manifests.</p>
+    </footer>
+    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/tools/tools.js"></script>
+  </body>
+</html>

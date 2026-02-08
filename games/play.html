@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LunaForge Game</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main" style="position:absolute; left:-999px;">Skip to content</a>
+    <header>
+      <nav class="navbar" aria-label="Primary">
+        <div class="brand">
+          <span class="logo" aria-hidden="true"></span>
+          <span>LunaForge</span>
+        </div>
+        <div class="nav-links">
+          <a href="/index.html">Home</a>
+          <a href="/tools/index.html">Tools</a>
+          <a href="/games/index.html">Mini Games</a>
+          <a href="/about.html">About</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <div class="panel">
+        <h1 id="game-title">Loading...</h1>
+        <p id="game-description" class="helper-text"></p>
+      </div>
+      <div class="game-shell">
+        <div class="game-board" id="game-board" tabindex="0"></div>
+        <aside class="game-sidebar">
+          <div class="panel">
+            <h2>Score</h2>
+            <p id="game-score">0</p>
+            <p id="game-message" class="helper-text"></p>
+            <div style="display:flex; gap:0.5rem;">
+              <button class="button" id="game-restart">Restart</button>
+              <button class="button secondary" id="game-back">Back</button>
+            </div>
+          </div>
+          <div class="panel">
+            <h2>Leaderboard</h2>
+            <ul class="list" id="leaderboard-list"></ul>
+            <button class="button secondary" id="leaderboard-clear">Clear Leaderboard</button>
+          </div>
+          <div id="game-errors"></div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>Scores are stored locally only.</p>
+    </footer>
+    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/games/play.js"></script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About LunaForge</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main" style="position:absolute; left:-999px;">Skip to content</a>
+    <header>
+      <nav class="navbar" aria-label="Primary">
+        <div class="brand">
+          <span class="logo" aria-hidden="true"></span>
+          <span>LunaForge</span>
+        </div>
+        <div class="nav-links">
+          <a href="/index.html">Home</a>
+          <a href="/tools/index.html">Tools</a>
+          <a href="/games/index.html">Mini Games</a>
+          <a href="/about.html">About</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="panel">
+        <h1>About LunaForge</h1>
+        <p>LunaForge is a client-side developer platform built for open-source collaboration and offline use.</p>
+        <div class="tag-group">
+          <span class="tag">MIT License</span>
+          <span class="tag">No Tracking</span>
+          <span class="tag">Offline Ready</span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Open Source</h2>
+        <p>GitHub: <a href="https://github.com/example/lunaforge">github.com/example/lunaforge</a></p>
+        <p>License: MIT (see LICENSE)</p>
+      </section>
+
+      <section class="panel">
+        <h2>Contribution Guide</h2>
+        <ul class="list">
+          <li>Fork the repository and create a feature branch.</li>
+          <li>Keep code modular and well-commented.</li>
+          <li>Test your tool or game locally before opening a PR.</li>
+          <li>Follow the plugin/game manifest schema strictly.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>Plugin Development Guide</h2>
+        <p>Tools and games are loaded from their own manifest.json files. Create a new folder under the correct plugin directory, add a manifest, and export a default module with init/render/destroy (tools) or start/reset (games).</p>
+        <pre class="notice">Tools: /tools/plugins/&lt;your-tool&gt;/manifest.json
+Games: /games/modules/&lt;your-game&gt;/manifest.json</pre>
+      </section>
+
+      <section class="panel">
+        <h2>Import / Export Data</h2>
+        <p>Export your settings, tool preferences, game progress, and leaderboards as a single JSON file.</p>
+        <div class="form-group">
+          <button class="button" id="export-data">Export Data</button>
+        </div>
+        <div class="form-group">
+          <label for="import-file">Import JSON</label>
+          <input type="file" id="import-file" accept="application/json" />
+          <button class="button secondary" id="import-data">Import Data</button>
+        </div>
+        <p id="import-status" class="helper-text" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Made for the community under the moon.</p>
+    </footer>
+    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/js/data-management.js"></script>
+  </body>
+</html>

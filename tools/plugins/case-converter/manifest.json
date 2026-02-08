@@ -1,0 +1,11 @@
+{
+  "id": "case-converter",
+  "name": "Case Converter",
+  "version": "1.0.0",
+  "type": "tool",
+  "description": "Convert text to common casing styles.",
+  "entry": "./plugins/case-converter/case-converter.js",
+  "author": "LunaForge Core",
+  "permissions": [],
+  "category": "Text / Utility"
+}
