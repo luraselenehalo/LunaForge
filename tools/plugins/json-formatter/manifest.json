@@ -1,0 +1,11 @@
+{
+  "id": "json-formatter",
+  "name": "JSON Formatter & Validator",
+  "version": "1.0.0",
+  "type": "tool",
+  "description": "Format JSON with validation feedback.",
+  "entry": "./plugins/json-formatter/json-formatter.js",
+  "author": "LunaForge Core",
+  "permissions": [],
+  "category": "Data / Backend"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "api-key-generator",
+  "name": "Random API Key Generator",
+  "version": "1.0.0",
+  "type": "tool",
+  "description": "Create long random API keys for development use.",
+  "entry": "./plugins/api-key-generator/api-key-generator.js",
+  "author": "LunaForge Core",
+  "permissions": [],
+  "category": "Security / Dev"
+}

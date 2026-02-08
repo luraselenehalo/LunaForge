@@ -1,0 +1,11 @@
+{
+  "id": "json-yaml-converter",
+  "name": "JSON \u2194 YAML Converter",
+  "version": "1.0.0",
+  "type": "tool",
+  "description": "Convert between JSON and a lightweight YAML subset.",
+  "entry": "./plugins/json-yaml-converter/json-yaml-converter.js",
+  "author": "LunaForge Core",
+  "permissions": [],
+  "category": "Data / Backend"
+}

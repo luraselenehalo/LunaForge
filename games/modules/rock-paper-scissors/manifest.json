@@ -1,0 +1,11 @@
+{
+  "id": "rock-paper-scissors",
+  "name": "Rock Paper Scissors",
+  "version": "1.0.0",
+  "type": "game",
+  "description": "Play best of five against the CPU.",
+  "entry": "./modules/rock-paper-scissors/rock-paper-scissors.js",
+  "author": "LunaForge Core",
+  "permissions": [],
+  "category": "Classic"
+}

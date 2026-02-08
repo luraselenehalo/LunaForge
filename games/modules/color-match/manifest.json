@@ -1,0 +1,11 @@
+{
+  "id": "color-match-reflex",
+  "name": "Color Match Reflex",
+  "version": "1.0.0",
+  "type": "game",
+  "description": "Select the swatch that matches the word color.",
+  "entry": "./modules/color-match/color-match.js",
+  "author": "LunaForge Core",
+  "permissions": [],
+  "category": "Reflex"
+}

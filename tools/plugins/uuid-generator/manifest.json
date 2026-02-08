@@ -1,0 +1,11 @@
+{
+  "id": "uuid-generator",
+  "name": "UUID Generator",
+  "version": "1.0.0",
+  "type": "tool",
+  "description": "Generate RFC 4122 UUIDs instantly.",
+  "entry": "./plugins/uuid-generator/uuid-generator.js",
+  "author": "LunaForge Core",
+  "permissions": [],
+  "category": "Security / Dev"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "aim-trainer",
+  "name": "Aim Trainer",
+  "version": "1.0.0",
+  "type": "game",
+  "description": "Hit as many targets as possible in 10 seconds.",
+  "entry": "./modules/aim-trainer/aim-trainer.js",
+  "author": "LunaForge Core",
+  "permissions": [],
+  "category": "Reflex"
+}

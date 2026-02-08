@@ -1,0 +1,11 @@
+{
+  "id": "reaction-time-test",
+  "name": "Reaction Time Test",
+  "version": "1.0.0",
+  "type": "game",
+  "description": "Wait for the signal, then click as fast as possible.",
+  "entry": "./modules/reaction-test/reaction-test.js",
+  "author": "LunaForge Core",
+  "permissions": [],
+  "category": "Reflex"
+}

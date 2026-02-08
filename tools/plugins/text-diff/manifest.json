@@ -1,0 +1,11 @@
+{
+  "id": "text-diff",
+  "name": "Text Diff Checker",
+  "version": "1.0.0",
+  "type": "tool",
+  "description": "Compare two texts and list line differences.",
+  "entry": "./plugins/text-diff/text-diff.js",
+  "author": "LunaForge Core",
+  "permissions": [],
+  "category": "Text / Utility"
+}

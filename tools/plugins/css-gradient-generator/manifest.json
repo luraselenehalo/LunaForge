@@ -1,0 +1,11 @@
+{
+  "id": "css-gradient-generator",
+  "name": "CSS Gradient Generator",
+  "version": "1.0.0",
+  "type": "tool",
+  "description": "Build linear gradients and grab the CSS.",
+  "entry": "./plugins/css-gradient-generator/css-gradient-generator.js",
+  "author": "LunaForge Core",
+  "permissions": [],
+  "category": "Frontend"
+}

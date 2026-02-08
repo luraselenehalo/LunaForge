@@ -1,0 +1,11 @@
+{
+  "id": "url-encode-decode",
+  "name": "URL Encode / Decode",
+  "version": "1.0.0",
+  "type": "tool",
+  "description": "Encode or decode URL-safe strings.",
+  "entry": "./plugins/url-encode-decode/url-encode-decode.js",
+  "author": "LunaForge Core",
+  "permissions": [],
+  "category": "Data / Backend"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "json-diff",
+  "name": "JSON Diff Viewer",
+  "version": "1.0.0",
+  "type": "tool",
+  "description": "Compare two JSON documents and highlight differences.",
+  "entry": "./plugins/json-diff/json-diff.js",
+  "author": "LunaForge Core",
+  "permissions": [],
+  "category": "Data / Backend"
+}
