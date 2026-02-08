@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "tool",
   "description": "Convert between Unix timestamps and readable dates.",
-  "entry": "./plugins/timestamp-converter/timestamp-converter.js",
+  "entry": "/tools/plugins/timestamp-converter/timestamp-converter.js",
   "author": "LunaForge Core",
   "permissions": [],
   "category": "Data / Backend"

@@ -3,15 +3,15 @@ export default {
   render: (container, state) => {
     container.innerHTML = `
       <div class="form-group">
-        <label for="text-left">Text A</label>
-        <textarea id="text-left"></textarea>
+        <label for="text-left">Original Text (A)</label>
+        <textarea id="text-left" placeholder="Enter original text..."></textarea>
       </div>
       <div class="form-group">
-        <label for="text-right">Text B</label>
-        <textarea id="text-right"></textarea>
+        <label for="text-right">Modified Text (B)</label>
+        <textarea id="text-right" placeholder="Enter modified text..."></textarea>
       </div>
-      <button class="button" id="text-diff">Compare</button>
-      <div class="panel" id="text-output" aria-live="polite"></div>
+      <button class="button" id="text-diff">Compare Texts</button>
+      <div class="output-display" id="text-output" style="display: none;" aria-live="polite"></div>
     `;
 
     const output = container.querySelector("#text-output");
@@ -26,24 +26,27 @@ export default {
         }
       }
       if (!diffs.length) {
-        output.innerHTML = "<p>No differences found.</p>";
+        output.innerHTML = "<p style='color: var(--success);'>✓ No differences found.</p>";
+        output.style.display = "block";
         return;
       }
       output.innerHTML = `
-        <ul class="list">
+        <p style="margin-bottom: 1rem; color: var(--accent);">Found ${diffs.length} difference(s):</p>
+        <ul class="list" style="text-align: left;">
           ${diffs
             .map(
               (diff) => `
-            <li>
+            <li style="border-left: 3px solid var(--accent); padding-left: 1rem;">
               <strong>Line ${diff.line}</strong><br />
-              A: ${diff.left}<br />
-              B: ${diff.right}
+              <span style="color: var(--danger);">A:</span> ${diff.left || "(empty)"}<br />
+              <span style="color: var(--success);">B:</span> ${diff.right || "(empty)"}
             </li>
           `
             )
             .join("")}
         </ul>
       `;
+      output.style.display = "block";
     });
   },
   destroy: (container) => {

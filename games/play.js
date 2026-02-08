@@ -18,8 +18,20 @@ let activeManifest = null;
 let score = 0;
 
 const updateScore = (value) => {
+  const oldScore = score;
   score = value;
   scoreEl.textContent = `${score}`;
+  
+  // Animate score change
+  if (value > oldScore) {
+    scoreEl.style.transform = "scale(1.2)";
+    scoreEl.style.color = "var(--success)";
+    setTimeout(() => {
+      scoreEl.style.transition = "all 0.3s ease";
+      scoreEl.style.transform = "scale(1)";
+      scoreEl.style.color = "";
+    }, 150);
+  }
 };
 
 const updateMessage = (value) => {
@@ -42,12 +54,25 @@ const handleGameOver = (finalScore) => {
   renderLeaderboard();
 };
 
+const showLoading = () => {
+  container.innerHTML = `
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 300px; gap: 1rem;">
+      <div class="loading" style="width: 50px; height: 50px;"></div>
+      <p class="helper-text">Loading game...</p>
+    </div>
+  `;
+  title.textContent = "Loading...";
+  description.textContent = "";
+};
+
 const loadGame = async () => {
   const gameId = getQueryParam("id");
   if (!gameId) {
     navigate("/games/index.html");
     return;
   }
+
+  showLoading();
 
   const games = await loadGames({ registry: gameRegistry, container: document.querySelector("#game-errors") });
   const game = games.find((item) => item.manifest.id === gameId);
@@ -57,7 +82,15 @@ const loadGame = async () => {
   }
 
   activeManifest = game.manifest;
-  title.textContent = game.manifest.name;
+  
+  // Animate title change
+  title.style.opacity = 0;
+  setTimeout(() => {
+    title.textContent = game.manifest.name;
+    title.style.transition = "opacity 0.3s ease";
+    title.style.opacity = 1;
+  }, 150);
+  
   description.textContent = game.manifest.description;
   updateScore(0);
   updateMessage("Ready when you are.");

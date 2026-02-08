@@ -24,18 +24,18 @@
     </header>
 
     <main id="main">
-      <div class="panel">
+      <div class="panel reveal">
         <h1 id="game-title">Loading...</h1>
         <p id="game-description" class="helper-text"></p>
       </div>
-      <div class="game-shell">
+      <div class="game-shell reveal">
         <div class="game-board" id="game-board" tabindex="0"></div>
         <aside class="game-sidebar">
           <div class="panel">
-            <h2>Score</h2>
+            <h2 style="text-align: center;">Score</h2>
             <p id="game-score">0</p>
-            <p id="game-message" class="helper-text"></p>
-            <div style="display:flex; gap:0.5rem;">
+            <p id="game-message" class="helper-text" style="text-align: center;"></p>
+            <div style="display:flex; gap:0.5rem; justify-content: center;">
               <button class="button" id="game-restart">Restart</button>
               <button class="button secondary" id="game-back">Back</button>
             </div>

@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "tool",
   "description": "Decode JWT header and payload locally.",
-  "entry": "./plugins/jwt-decoder/jwt-decoder.js",
+  "entry": "/tools/plugins/jwt-decoder/jwt-decoder.js",
   "author": "LunaForge Core",
   "permissions": [],
   "category": "Security / Dev"

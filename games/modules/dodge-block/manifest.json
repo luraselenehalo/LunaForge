@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "game",
   "description": "Move the ship to avoid falling blocks.",
-  "entry": "./modules/dodge-block/dodge-block.js",
+  "entry": "/games/modules/dodge-block/dodge-block.js",
   "author": "LunaForge Core",
   "permissions": [],
   "category": "Arcade"

@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "game",
   "description": "Match pairs of cards with memory skills.",
-  "entry": "./modules/memory-flip/memory-flip.js",
+  "entry": "/games/modules/memory-flip/memory-flip.js",
   "author": "LunaForge Core",
   "permissions": [],
   "category": "Memory"

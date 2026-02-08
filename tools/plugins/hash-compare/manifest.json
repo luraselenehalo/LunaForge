@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "tool",
   "description": "Compare two hashes and verify if they match.",
-  "entry": "./plugins/hash-compare/hash-compare.js",
+  "entry": "/tools/plugins/hash-compare/hash-compare.js",
   "author": "LunaForge Core",
   "permissions": [],
   "category": "Security / Dev"

@@ -3,20 +3,20 @@ export default {
   render: (container, state) => {
     container.innerHTML = `
       <div class="form-group">
-        <label for="url-input">Input</label>
-        <input id="url-input" type="text" placeholder="Paste text or URL" />
+        <label for="url-input">Text to Process</label>
+        <textarea id="url-input" placeholder="Enter text or URL to encode/decode..."></textarea>
       </div>
       <div class="form-group">
         <label for="url-action">Action</label>
         <select id="url-action">
-          <option value="encode">Encode</option>
-          <option value="decode">Decode</option>
+          <option value="encode">URL Encode</option>
+          <option value="decode">URL Decode</option>
         </select>
       </div>
-      <button class="button" id="url-run">Run</button>
+      <button class="button" id="url-run">Process</button>
       <div class="form-group">
-        <label for="url-output">Output</label>
-        <input id="url-output" type="text" readonly value="${state.output}" />
+        <label for="url-output">Result</label>
+        <textarea id="url-output" readonly>${state.output}</textarea>
       </div>
     `;
 
@@ -24,8 +24,12 @@ export default {
     container.querySelector("#url-run").addEventListener("click", () => {
       const value = container.querySelector("#url-input").value;
       const action = container.querySelector("#url-action").value;
-      state.output = action === "encode" ? encodeURIComponent(value) : decodeURIComponent(value);
-      output.value = state.output;
+      try {
+        state.output = action === "encode" ? encodeURIComponent(value) : decodeURIComponent(value);
+        output.value = state.output;
+      } catch (error) {
+        output.value = `Error: ${error.message}`;
+      }
     });
   },
   destroy: (container) => {

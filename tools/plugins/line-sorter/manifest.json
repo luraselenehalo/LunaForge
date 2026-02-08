@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "tool",
   "description": "Sort lines alphabetically and remove duplicates.",
-  "entry": "./plugins/line-sorter/line-sorter.js",
+  "entry": "/tools/plugins/line-sorter/line-sorter.js",
   "author": "LunaForge Core",
   "permissions": [],
   "category": "Text / Utility"

@@ -21,3 +21,45 @@ if (focusSkip) {
     }
   });
 }
+
+// Scroll-triggered animations using Intersection Observer
+const observerOptions = {
+  root: null,
+  rootMargin: "0px 0px -50px 0px",
+  threshold: 0.1,
+};
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+// Observe all reveal elements
+document.querySelectorAll(".reveal, .reveal-left, .reveal-right").forEach((el) => {
+  revealObserver.observe(el);
+});
+
+// Add reveal class to elements dynamically
+document.addEventListener("DOMContentLoaded", () => {
+  // Add reveal animations to panels and sections
+  document.querySelectorAll(".panel, section h2, .card-grid").forEach((el, index) => {
+    if (!el.classList.contains("reveal") && 
+        !el.classList.contains("reveal-left") && 
+        !el.classList.contains("reveal-right")) {
+      el.classList.add("reveal");
+      el.style.animationDelay = `${index * 0.1}s`;
+      revealObserver.observe(el);
+    }
+  });
+});
+
+// Smooth reveal for dynamically loaded content
+window.revealElements = (container) => {
+  container.querySelectorAll(".reveal, .reveal-left, .reveal-right").forEach((el) => {
+    revealObserver.observe(el);
+  });
+};

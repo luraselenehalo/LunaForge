@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "game",
   "description": "Type the prompt accurately and quickly.",
-  "entry": "./modules/typing-speed/typing-speed.js",
+  "entry": "/games/modules/typing-speed/typing-speed.js",
   "author": "LunaForge Core",
   "permissions": [],
   "category": "Skill"

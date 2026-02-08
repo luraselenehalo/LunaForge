@@ -3,13 +3,15 @@ export default {
   render: (container, state) => {
     container.innerHTML = `
       <div class="form-group">
-        <label for="line-input">Lines</label>
-        <textarea id="line-input" placeholder="One item per line"></textarea>
+        <label for="line-input">Input Lines</label>
+        <textarea id="line-input" placeholder="Enter one item per line..."></textarea>
       </div>
-      <label><input type="checkbox" id="line-dedup" checked /> Remove duplicates</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="line-dedup" checked /> Remove duplicate lines</label>
+      </div>
       <button class="button" id="line-sort">Sort Lines</button>
       <div class="form-group">
-        <label for="line-output">Output</label>
+        <label for="line-output">Sorted Output</label>
         <textarea id="line-output" readonly>${state.output}</textarea>
       </div>
     `;

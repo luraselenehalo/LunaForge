@@ -130,6 +130,12 @@ main {
 .hero-card h1 {
   font-size: clamp(2.4rem, 3.5vw, 3.5rem);
   margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--text) 0%, var(--accent) 50%, var(--accent-strong) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+  background-size: 200% auto;
 }
 
 .hero-card p {
@@ -368,4 +374,1091 @@ dialog::backdrop {
   .game-shell {
     grid-template-columns: 1fr;
   }
+}
+
+/* ============================================
+   ANIMATIONS & ENHANCED UI
+   ============================================ */
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 16px rgba(124, 140, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(124, 140, 255, 0.9);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Page load animations */
+main {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.hero-card {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-card + .panel {
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+/* Staggered card animations */
+.card-grid .card {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.card-grid .card:nth-child(1) { animation-delay: 0.1s; }
+.card-grid .card:nth-child(2) { animation-delay: 0.2s; }
+.card-grid .card:nth-child(3) { animation-delay: 0.3s; }
+.card-grid .card:nth-child(4) { animation-delay: 0.4s; }
+.card-grid .card:nth-child(5) { animation-delay: 0.5s; }
+.card-grid .card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Enhanced Logo Animation */
+.brand .logo {
+  animation: float 3s ease-in-out infinite, pulse 2s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.brand:hover .logo {
+  transform: scale(1.1);
+}
+
+/* Enhanced Navigation */
+.nav-links a {
+  position: relative;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 4px;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links a:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+/* Enhanced Buttons */
+.button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.button:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+.button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(124, 140, 255, 0.4);
+}
+
+.button.secondary:hover {
+  background: rgba(124, 140, 255, 0.1);
+  border-color: var(--accent);
+}
+
+.button:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* Enhanced Cards */
+.card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(124, 140, 255, 0.05),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.card:hover::before {
+  left: 100%;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(124, 140, 255, 0.8);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(124, 140, 255, 0.1);
+}
+
+.card:hover .badge {
+  background: rgba(124, 140, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.badge {
+  transition: all 0.3s ease;
+}
+
+/* Enhanced Panels */
+.panel {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.panel:hover {
+  border-color: rgba(124, 140, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Input focus animations */
+input,
+textarea,
+select {
+  transition: all 0.3s ease;
+  background: linear-gradient(145deg, var(--panel-alt), var(--panel));
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+  border-color: rgba(124, 140, 255, 0.4);
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(124, 140, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* List item animations */
+.list li {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.list li:hover {
+  transform: translateX(5px);
+  border-color: rgba(124, 140, 255, 0.4);
+  background: var(--panel);
+}
+
+.list li:hover::before {
+  transform: scaleY(1);
+}
+
+/* Tool Modal - Fly-in from bottom right animation */
+@keyframes flyInFromBottomRight {
+  0% {
+    opacity: 0;
+    transform: translate(100vw, 100vh) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#tool-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
+
+#tool-modal[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#tool-modal[open]::backdrop {
+  background: rgba(5, 8, 16, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+/* Inner container - starts from bottom right, flies to center */
+.tool-modal-inner {
+  background: var(--panel);
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  width: 90vw;
+  max-width: 700px;
+  max-height: 85vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+}
+
+#tool-modal[open] .tool-modal-inner {
+  animation: flyInFromBottomRight 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Modal header */
+.tool-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tool-modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* Modal content area */
+#tool-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Form groups in modal */
+#tool-modal-content .form-group {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 1rem;
+}
+
+#tool-modal-content .form-group > label {
+  text-align: left;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  display: block;
+}
+
+#tool-modal-content input,
+#tool-modal-content textarea,
+#tool-modal-content select {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+#tool-modal-content textarea {
+  min-height: 120px;
+  resize: vertical;
+  text-align: left;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.9rem;
+}
+
+#tool-modal-content input[type="color"] {
+  height: 48px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+#tool-modal-content input[type="number"] {
+  text-align: center;
+}
+
+#tool-modal-content select {
+  cursor: pointer;
+}
+
+#tool-modal-content .helper-text {
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+}
+
+#tool-modal-content button {
+  align-self: center;
+  margin: 1.5rem 0;
+  min-width: 150px;
+}
+
+#tool-modal-content .form-group button {
+  margin: 0;
+}
+
+#tool-modal-content button.secondary {
+  margin-top: 0.5rem;
+}
+
+/* Checkbox container styling */
+#tool-modal-content .checkbox-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 1rem;
+}
+
+#tool-modal-content .checkbox-group label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+#tool-modal-content .checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+/* Inline form groups (for RGB inputs etc) */
+#tool-modal-content .form-group-inline {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+#tool-modal-content .form-group-inline input {
+  flex: 1;
+}
+
+/* Tool output display */
+#tool-modal-content .output-display {
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  word-break: break-all;
+  text-align: left;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Tool preview boxes (color swatches, gradient previews etc) */
+#tool-modal-content .preview-box {
+  width: 100%;
+  max-width: 500px;
+  height: 48px;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: 1px solid var(--border);
+}
+
+/* Tool panels inside modal (JWT decoder etc) */
+#tool-modal-content .panel {
+  width: 100%;
+  max-width: 500px;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+#tool-modal-content .panel textarea {
+  min-height: 100px;
+}
+
+/* Responsive adjustments */
+@media (max-height: 700px) {
+  .tool-modal-inner {
+    max-height: 95vh;
+    margin: 1rem;
+  }
+  
+  #tool-modal-content {
+    padding: 1rem;
+  }
+}
+
+/* Section title animation */
+.section-title {
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: 3px;
+  animation: shimmer 2s infinite linear;
+  background-size: 200% 100%;
+}
+
+/* Loading spinner */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Game board enhancements */
+.game-board {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.game-board:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(124, 140, 255, 0.2);
+}
+
+/* Hero actions button stagger */
+.hero-actions .button {
+  animation: fadeInUp 0.5s ease-out backwards;
+}
+
+.hero-actions .button:nth-child(1) { animation-delay: 0.3s; }
+.hero-actions .button:nth-child(2) { animation-delay: 0.4s; }
+
+/* Tag animations */
+.tag {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tag:hover {
+  background: rgba(124, 140, 255, 0.15);
+  border-color: rgba(124, 140, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Footer enhancements */
+.footer {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.5;
+}
+
+/* Scroll-triggered animations (using intersection observer classes) */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Skeleton loading animation */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--panel-alt) 25%,
+    var(--panel) 50%,
+    var(--panel-alt) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* Success/Danger/Warning states with animation */
+.notice.success {
+  border-color: rgba(45, 212, 191, 0.5);
+  background: rgba(45, 212, 191, 0.1);
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.notice.danger {
+  border-color: rgba(249, 115, 22, 0.5);
+  background: rgba(249, 115, 22, 0.1);
+  animation: shake 0.5s ease-out;
+}
+
+.notice.warning {
+  border-color: rgba(250, 204, 21, 0.5);
+  background: rgba(250, 204, 21, 0.1);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 5px;
+  border: 2px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(124, 140, 255, 0.3);
+  color: var(--text);
+}
+
+/* Focus visible improvements */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Game shell responsive animation */
+@media (max-width: 900px) {
+  .game-shell {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .game-sidebar {
+    animation: fadeInUp 0.5s ease-out 0.2s backwards;
+  }
+}
+
+/* Game score styling */
+#game-score {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-align: center;
+  margin: 0.5rem 0;
+  text-shadow: 0 0 20px rgba(124, 140, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+/* Enhanced game board */
+.game-board {
+  position: relative;
+  overflow: hidden;
+}
+
+.game-board::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(124, 140, 255, 0.03) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Tool modal enhancements */
+#tool-modal {
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+#tool-modal .panel {
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+/* Enhanced form inputs */
+input[type="checkbox"],
+input[type="radio"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+  accent-color: var(--accent);
+}
+
+/* Custom checkbox styling */
+input[type="checkbox"] {
+  appearance: none;
+  background: var(--panel-alt);
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #0b0f1a;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Tool category badges */
+.card .badge {
+  transition: all 0.3s ease;
+}
+
+.card:hover .badge {
+  background: rgba(124, 140, 255, 0.25);
+  transform: scale(1.05);
+}
+
+/* Active game message */
+#game-message {
+  min-height: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Leaderboard list enhancements */
+#leaderboard-list li {
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.4s ease-out backwards;
+}
+
+#leaderboard-list li:nth-child(1) { animation-delay: 0.1s; }
+#leaderboard-list li:nth-child(2) { animation-delay: 0.2s; }
+#leaderboard-list li:nth-child(3) { animation-delay: 0.3s; }
+#leaderboard-list li:nth-child(4) { animation-delay: 0.4s; }
+#leaderboard-list li:nth-child(5) { animation-delay: 0.5s; }
+
+/* Button ripple effect on click */
+.button {
+  position: relative;
+  overflow: hidden;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.button:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Enhanced section titles */
+.section-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: 3px;
+}
+
+/* Helper text animation */
+.helper-text {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .helper-text,
+.panel:hover .helper-text {
+  opacity: 1;
+}
+
+/* Card button alignment fix */
+.card .button {
+  margin-top: auto;
+}
+
+/* About page specific styles */
+.about-content {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.about-content h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-content p {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+/* Responsive improvements */
+@media (max-width: 600px) {
+  .hero-card {
+    padding: 1.5rem;
+  }
+  
+  .card {
+    padding: 1rem;
+  }
+  
+  .panel {
+    padding: 1rem;
+  }
+  
+  #game-score {
+    font-size: 2.5rem;
+  }
+}
+
+/* File input styling */
+input[type="file"] {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+  background: var(--accent);
+  color: #0b0f1a;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(124, 140, 255, 0.4);
+}
+
+/* Code/pre blocks */
+pre.notice {
+  font-family: "Fira Code", "Consolas", monospace;
+  font-size: 0.9rem;
+  background: var(--panel-alt);
+  padding: 1rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  line-height: 1.8;
+}
+
+/* Import/Export buttons container */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group .button {
+  align-self: flex-start;
+}
+
+/* Status message positioning */
+#import-status {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Enhanced link styling */
+a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* Prevent underline on buttons */
+.button::after,
+.card .button::after,
+nav a::after {
+  display: none;
+}
+
+/* Card link hover effect */
+.card a {
+  text-decoration: none;
+}
+
+/* Game sidebar score panel */
+.game-sidebar .panel:first-child {
+  background: linear-gradient(145deg, var(--panel), var(--panel-alt));
+}
+
+/* Main content padding adjustment */
+main {
+  padding-top: 2rem;
+}
+
+/* Hero section improvements */
+.hero {
+  margin-bottom: 2rem;
+}
+
+/* Section spacing */
+section {
+  margin-bottom: 1rem;
+}
+
+/* Ensure footer stays at bottom */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }

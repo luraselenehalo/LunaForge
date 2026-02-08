@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "tool",
   "description": "Trim and normalize whitespace in text.",
-  "entry": "./plugins/whitespace-cleaner/whitespace-cleaner.js",
+  "entry": "/tools/plugins/whitespace-cleaner/whitespace-cleaner.js",
   "author": "LunaForge Core",
   "permissions": [],
   "category": "Text / Utility"

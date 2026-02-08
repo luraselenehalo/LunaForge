@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "tool",
   "description": "Generate SEO and social sharing meta tags.",
-  "entry": "./plugins/meta-tag-generator/meta-tag-generator.js",
+  "entry": "/tools/plugins/meta-tag-generator/meta-tag-generator.js",
   "author": "LunaForge Core",
   "permissions": [],
   "category": "Frontend"

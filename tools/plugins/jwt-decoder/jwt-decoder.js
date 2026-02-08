@@ -15,17 +15,18 @@ export default {
     container.innerHTML = `
       <div class="form-group">
         <label for="jwt-input">JWT Token</label>
-        <textarea id="jwt-input" placeholder="Paste JWT here"></textarea>
+        <textarea id="jwt-input" placeholder="Paste your JWT token here..."></textarea>
       </div>
-      <button class="button" id="jwt-decode">Decode</button>
-      <div class="panel" aria-live="polite" id="jwt-output"></div>
+      <button class="button" id="jwt-decode">Decode Token</button>
+      <div class="output-display" id="jwt-output" style="display: none;"></div>
     `;
 
     const output = container.querySelector("#jwt-output");
     container.querySelector("#jwt-decode").addEventListener("click", () => {
       const token = container.querySelector("#jwt-input").value.trim();
       if (!token) {
-        output.innerHTML = "<p>Provide a JWT token to decode.</p>";
+        output.innerHTML = "<p style='color: var(--danger);'>Please provide a JWT token to decode.</p>";
+        output.style.display = "block";
         return;
       }
       try {
@@ -33,17 +34,19 @@ export default {
         state.header = JSON.stringify(decodePart(header), null, 2);
         state.payload = JSON.stringify(decodePart(payload), null, 2);
         output.innerHTML = `
-          <div class="form-group">
-            <label>Header</label>
-            <textarea readonly>${state.header}</textarea>
+          <div style="margin-bottom: 1rem;">
+            <label style="display: block; margin-bottom: 0.5rem; color: var(--accent);">Header</label>
+            <textarea readonly style="min-height: 80px;">${state.header}</textarea>
           </div>
-          <div class="form-group">
-            <label>Payload</label>
-            <textarea readonly>${state.payload}</textarea>
+          <div>
+            <label style="display: block; margin-bottom: 0.5rem; color: var(--accent);">Payload</label>
+            <textarea readonly style="min-height: 120px;">${state.payload}</textarea>
           </div>
         `;
+        output.style.display = "block";
       } catch (error) {
-        output.innerHTML = `<p>Invalid token format: ${error.message}</p>`;
+        output.innerHTML = `<p style='color: var(--danger);'>Invalid token format: ${error.message}</p>`;
+        output.style.display = "block";
       }
     });
   },

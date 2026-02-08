@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "tool",
   "description": "Generate placeholder paragraphs quickly.",
-  "entry": "./plugins/lorem-ipsum/lorem-ipsum.js",
+  "entry": "/tools/plugins/lorem-ipsum/lorem-ipsum.js",
   "author": "LunaForge Core",
   "permissions": [],
   "category": "Text / Utility"

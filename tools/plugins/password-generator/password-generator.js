@@ -19,17 +19,17 @@ export default {
     container.innerHTML = `
       <div class="form-group">
         <label for="pw-length">Length</label>
-        <input id="pw-length" type="number" min="8" max="64" value="16" />
+        <input id="pw-length" type="number" min="8" max="128" value="16" />
       </div>
-      <div class="form-group">
-        <label><input type="checkbox" id="pw-lower" checked /> Lowercase</label>
-        <label><input type="checkbox" id="pw-upper" checked /> Uppercase</label>
-        <label><input type="checkbox" id="pw-numbers" checked /> Numbers</label>
-        <label><input type="checkbox" id="pw-symbols" /> Symbols</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="pw-lower" checked /> Lowercase (a-z)</label>
+        <label><input type="checkbox" id="pw-upper" checked /> Uppercase (A-Z)</label>
+        <label><input type="checkbox" id="pw-numbers" checked /> Numbers (0-9)</label>
+        <label><input type="checkbox" id="pw-symbols" /> Symbols (!@#$...)</label>
       </div>
-      <button class="button" id="pw-generate">Generate</button>
+      <button class="button" id="pw-generate">Generate Password</button>
       <div class="form-group">
-        <label for="pw-output">Password</label>
+        <label for="pw-output">Generated Password</label>
         <input id="pw-output" type="text" readonly value="${state.generated}" />
       </div>
     `;

@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "game",
   "description": "Click as many times as you can in 5 seconds.",
-  "entry": "./modules/click-speed/click-speed.js",
+  "entry": "/games/modules/click-speed/click-speed.js",
   "author": "LunaForge Core",
   "permissions": [],
   "category": "Reflex"

@@ -3,14 +3,16 @@ export default {
   render: (container, state) => {
     container.innerHTML = `
       <div class="form-group">
-        <label for="space-input">Text</label>
-        <textarea id="space-input"></textarea>
+        <label for="space-input">Text to Clean</label>
+        <textarea id="space-input" placeholder="Paste text with extra whitespace..."></textarea>
       </div>
-      <label><input type="checkbox" id="space-trim" checked /> Trim lines</label>
-      <label><input type="checkbox" id="space-collapse" checked /> Collapse multiple spaces</label>
-      <button class="button" id="space-clean">Clean</button>
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="space-trim" checked /> Trim whitespace from line starts/ends</label>
+        <label><input type="checkbox" id="space-collapse" checked /> Collapse multiple spaces into one</label>
+      </div>
+      <button class="button" id="space-clean">Clean Whitespace</button>
       <div class="form-group">
-        <label for="space-output">Output</label>
+        <label for="space-output">Cleaned Output</label>
         <textarea id="space-output" readonly>${state.output}</textarea>
       </div>
     `;

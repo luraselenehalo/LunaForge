@@ -18,23 +18,23 @@ export default {
   render: (container, state) => {
     container.innerHTML = `
       <div class="form-group">
-        <label for="hex-input">HEX</label>
+        <label for="hex-input">HEX Color</label>
         <input id="hex-input" type="text" placeholder="#7c8cff" />
       </div>
       <div class="form-group">
-        <label>RGB</label>
-        <div style="display:flex; gap:0.5rem;">
+        <label>RGB Values</label>
+        <div class="form-group-inline">
           <input id="rgb-r" type="number" min="0" max="255" placeholder="R" />
           <input id="rgb-g" type="number" min="0" max="255" placeholder="G" />
           <input id="rgb-b" type="number" min="0" max="255" placeholder="B" />
         </div>
       </div>
-      <button class="button" id="color-convert">Convert</button>
+      <button class="button" id="color-convert">Convert Color</button>
       <div class="form-group">
-        <label for="color-output">Output</label>
+        <label for="color-output">Result</label>
         <input id="color-output" type="text" readonly value="${state.output}" />
       </div>
-      <div class="notice" id="color-swatch" style="height:48px; border-radius:12px;"></div>
+      <div class="preview-box" id="color-swatch"></div>
     `;
 
     const output = container.querySelector("#color-output");

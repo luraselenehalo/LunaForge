@@ -1,12 +1,12 @@
 export const gameRegistry = [
-  "./modules/click-speed/manifest.json",
-  "./modules/reaction-test/manifest.json",
-  "./modules/number-guess/manifest.json",
-  "./modules/memory-flip/manifest.json",
-  "./modules/typing-speed/manifest.json",
-  "./modules/dodge-block/manifest.json",
-  "./modules/snake/manifest.json",
-  "./modules/aim-trainer/manifest.json",
-  "./modules/rock-paper-scissors/manifest.json",
-  "./modules/color-match/manifest.json"
+  "/games/modules/click-speed/manifest.json",
+  "/games/modules/reaction-test/manifest.json",
+  "/games/modules/number-guess/manifest.json",
+  "/games/modules/memory-flip/manifest.json",
+  "/games/modules/typing-speed/manifest.json",
+  "/games/modules/dodge-block/manifest.json",
+  "/games/modules/snake/manifest.json",
+  "/games/modules/aim-trainer/manifest.json",
+  "/games/modules/rock-paper-scissors/manifest.json",
+  "/games/modules/color-match/manifest.json"
 ];

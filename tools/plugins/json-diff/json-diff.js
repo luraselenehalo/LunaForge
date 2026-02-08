@@ -13,15 +13,15 @@ export default {
   render: (container, state) => {
     container.innerHTML = `
       <div class="form-group">
-        <label for="json-left">JSON A</label>
-        <textarea id="json-left"></textarea>
+        <label for="json-left">Original JSON (A)</label>
+        <textarea id="json-left" placeholder='{"example": "value1"}'></textarea>
       </div>
       <div class="form-group">
-        <label for="json-right">JSON B</label>
-        <textarea id="json-right"></textarea>
+        <label for="json-right">Modified JSON (B)</label>
+        <textarea id="json-right" placeholder='{"example": "value2"}'></textarea>
       </div>
       <button class="button" id="json-compare">Compare JSON</button>
-      <div class="panel" id="json-diff-output" aria-live="polite"></div>
+      <div class="output-display" id="json-diff-output" style="display: none;" aria-live="polite"></div>
     `;
 
     const output = container.querySelector("#json-diff-output");
@@ -39,26 +39,30 @@ export default {
           }
         });
         if (!diffs.length) {
-          output.innerHTML = "<p>No differences found.</p>";
+          output.innerHTML = "<p style='color: var(--success);'>✓ No differences found.</p>";
+          output.style.display = "block";
           return;
         }
         output.innerHTML = `
-          <ul class="list">
+          <p style="margin-bottom: 1rem; color: var(--accent);">Found ${diffs.length} difference(s):</p>
+          <ul class="list" style="text-align: left;">
             ${diffs
               .map(
                 (diff) => `
-              <li>
+              <li style="border-left: 3px solid var(--accent); padding-left: 1rem;">
                 <strong>${diff.key}</strong><br />
-                A: ${JSON.stringify(diff.left)}<br />
-                B: ${JSON.stringify(diff.right)}
+                <span style="color: var(--danger);">A:</span> ${JSON.stringify(diff.left)}<br />
+                <span style="color: var(--success);">B:</span> ${JSON.stringify(diff.right)}
               </li>
             `
               )
               .join("")}
           </ul>
         `;
+        output.style.display = "block";
       } catch (error) {
-        output.innerHTML = `<p>Invalid JSON: ${error.message}</p>`;
+        output.innerHTML = `<p style='color: var(--danger);'>Invalid JSON: ${error.message}</p>`;
+        output.style.display = "block";
       }
     });
   },

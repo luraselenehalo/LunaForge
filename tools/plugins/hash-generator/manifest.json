@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "tool",
   "description": "Generate MD5 or SHA-256 hashes from text.",
-  "entry": "./plugins/hash-generator/hash-generator.js",
+  "entry": "/tools/plugins/hash-generator/hash-generator.js",
   "author": "LunaForge Core",
   "permissions": [],
   "category": "Security / Dev"

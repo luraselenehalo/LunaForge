@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "tool",
   "description": "Convert between HEX and RGB color values.",
-  "entry": "./plugins/color-converter/color-converter.js",
+  "entry": "/tools/plugins/color-converter/color-converter.js",
   "author": "LunaForge Core",
   "permissions": [],
   "category": "Frontend"

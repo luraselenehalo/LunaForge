@@ -2,24 +2,26 @@ export default {
   init: () => ({ output: "" }),
   render: (container, state) => {
     container.innerHTML = `
-      <div class="form-group">
-        <label for="grad-color-1">Color 1</label>
-        <input id="grad-color-1" type="color" value="#7c8cff" />
+      <div class="form-group-inline">
+        <div class="form-group" style="flex: 1;">
+          <label for="grad-color-1">Color 1</label>
+          <input id="grad-color-1" type="color" value="#7c8cff" />
+        </div>
+        <div class="form-group" style="flex: 1;">
+          <label for="grad-color-2">Color 2</label>
+          <input id="grad-color-2" type="color" value="#141a2b" />
+        </div>
       </div>
       <div class="form-group">
-        <label for="grad-color-2">Color 2</label>
-        <input id="grad-color-2" type="color" value="#141a2b" />
-      </div>
-      <div class="form-group">
-        <label for="grad-angle">Angle</label>
+        <label for="grad-angle">Angle (degrees)</label>
         <input id="grad-angle" type="number" min="0" max="360" value="135" />
       </div>
-      <button class="button" id="grad-generate">Generate</button>
+      <button class="button" id="grad-generate">Generate CSS</button>
       <div class="form-group">
-        <label for="grad-output">CSS</label>
+        <label for="grad-output">CSS Code</label>
         <input id="grad-output" type="text" readonly value="${state.output}" />
       </div>
-      <div class="notice" id="grad-preview" style="height:48px; border-radius:12px;"></div>
+      <div class="preview-box" id="grad-preview"></div>
     `;
 
     const output = container.querySelector("#grad-output");

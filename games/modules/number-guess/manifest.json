@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "game",
   "description": "Guess the hidden number between 1 and 100.",
-  "entry": "./modules/number-guess/number-guess.js",
+  "entry": "/games/modules/number-guess/number-guess.js",
   "author": "LunaForge Core",
   "permissions": [],
   "category": "Logic"
